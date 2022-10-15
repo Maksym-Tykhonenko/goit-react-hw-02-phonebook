@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 
@@ -14,7 +16,7 @@ export class Form extends Component {
   handleNameChange = e => {
     const { name, value } = e.currentTarget;
 
-    this.setState({ id: nanoid(8), [name]: value });
+    this.setState({ id: nanoid(), [name]: value });
   };
 
   handleSubmitForm = e => {
@@ -66,4 +68,8 @@ export class Form extends Component {
       </RegForm>
     );
   }
+}
+
+Form.propTypes = {
+  addToContactList: PropTypes.func.isRequired,
 }

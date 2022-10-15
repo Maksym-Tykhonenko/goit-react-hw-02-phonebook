@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { List, Btn, Contact, Name, Number } from './ContactsList.styled';
 
 export const ContactsList = ({ foundContact, deleteContact }) => {
@@ -17,4 +19,11 @@ export const ContactsList = ({ foundContact, deleteContact }) => {
       })}
     </List>
   );
+};
+
+ContactsList.propTypes = {
+  foundContact: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.string.isRequired).isRequired
+  ).isRequired,
+  deleteContact: PropTypes.func.isRequired,
 };
